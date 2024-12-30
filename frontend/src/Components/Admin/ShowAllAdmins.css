@@ -1,0 +1,82 @@
+:root {
+    --white: #fff;
+    --black: #000;
+    --blue: rgb(9, 23, 175);
+    --gray-light: #f4f4f4;
+    --gray-dark: #ddd;
+    --border-color: #ccc;
+    --hover-bg: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', sans-serif;
+}
+
+
+/* Container for the entire admin list page */
+.showAllAdmins {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px; 
+    background-color: white;
+    
+}
+
+/* Heading for the page */
+.showAllAdmins h1 {
+    font-size: 36px;
+    color: var(--black);
+    margin-bottom: 40px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Admin list table container */
+.adminTableContainer {
+    width: 100%;
+    max-width: 900px;
+    border: 3px solid var(--black);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--white);
+}
+
+.adminTableContainer th, .adminTableContainer td {
+    font-size: 16px;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.adminTableContainer th {
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 18px;
+}
+
+/* Admin table rows */
+.adminTableContainer tr:hover {
+    background-color: var(--hover-bg);
+}
+
+/* Responsive design for mobile devices */
+@media screen and (max-width: 760px) {
+    .showAllAdmins h1 {
+        font-size: 28px;
+    }
+    .adminTableContainer {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .adminTableContainer th, .adminTableContainer td {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+}

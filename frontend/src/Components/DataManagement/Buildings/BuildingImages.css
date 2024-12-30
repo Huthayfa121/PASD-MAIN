@@ -1,0 +1,126 @@
+:root {
+    --white: #fff;
+    --black: #000;
+    --blue: rgb(9, 23, 175);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.BuildingImagesWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--white);
+}
+
+.BuildingImagesBox {
+    margin-top: 40px;
+    width: 500px;
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.BuildingImagesTitle {
+    margin-bottom: 30px;
+    font-size: 32px;
+    color: var(--black);
+    text-align: center;
+    position: relative;
+}
+
+.BuildingImagesTitle::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: var(--black);
+}
+
+.InputGroup {
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.InputGroup input, 
+.InputGroup select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: var(--black);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--black);
+    outline: none;
+    transition: border-bottom-color 0.5s;
+}
+
+.InputGroup input:focus,
+.InputGroup select:focus {
+    border-bottom-color: var(--blue);
+}
+
+.InputGroup label {
+    font-size: 16px;
+    color: var(--black);
+    margin-top: 15px;
+    
+}
+
+.IconWrapper {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--black);
+    pointer-events: none;
+    transition: color 0.5s;
+}
+
+.InputGroup input:focus~.IconWrapper,
+.InputGroup select:focus~.IconWrapper {
+    color: var(--blue);
+}
+
+.UploadGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.BuildingImagesBtn {
+    text-align: center;
+    position: relative;
+    width: 50%;
+    height: 45px;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px auto; 
+    display: block; 
+    transition: box-shadow 0.3s;
+}
+
+.BuildingImagesBtn:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}

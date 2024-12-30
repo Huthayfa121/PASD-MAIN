@@ -1,0 +1,143 @@
+:root {
+    --white: #fff;
+    --black: #000; 
+    --blue: rgb(9, 23, 175);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.AddAdminHome { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.AddAdminWrapper {
+    margin-top: 20px;
+    position: relative;
+    width: 500px;
+    height: 550px;
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.AddAdminFormBox {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+.AddAdminFormBox .AddAdminTitle {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: var(--black);
+    text-align: center;
+    position: relative;
+}
+
+.AddAdminFormBox .AddAdminTitle::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: var(--black);
+}
+
+.AddAdminInputBox {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.AddAdminInputBox input, select {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--black);
+    padding-right: 40px; /* Space for the icon */
+    transition: 0.5s;
+}
+
+.AddAdminInputBox input:focus,
+.AddAdminInputBox input:valid {
+    border-bottom-color: var(--blue);
+}
+
+.AddAdminInputBox label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: var(--black);
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.AddAdminInputBox input:focus~label,
+.AddAdminInputBox input:valid~label {
+    top: -5px;
+    color: var(--blue);
+}
+
+.AddAdminInputBox .icon {
+    position: absolute;
+    right: 10px; /* Position inside the input field */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--black);
+    pointer-events: none; /* Prevent interaction with the icon */
+    transition: 0.5s;
+}
+
+.AddAdminInputBox input:focus~.icon,
+.AddAdminInputBox input:valid~.icon {
+    color: var(--blue); /* Change icon color on focus/valid input */
+}
+
+.AddAdminBtn {
+    margin-top: 20px;
+    width: 100%;
+    height: 45px;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.AddAdminBtn:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+

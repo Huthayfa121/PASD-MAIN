@@ -1,0 +1,139 @@
+
+.table-container {
+    display: flex;                /* Make the container a flexbox */
+    flex-direction: column;       /* Align children in a column */
+    align-items: center;          /* Center children horizontally */
+    justify-content: center;      /* Center children vertically */
+    min-height: 100vh;            /* Full viewport height */
+    padding: 40px;
+    background-color: white;
+}
+
+
+.table-container h1 {
+    /*margin-top: 20px;*/ 
+    font-size: 36px;
+    color: var(--black);
+    margin-bottom: 10px;
+    
+}
+
+.controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.search-bar {
+    width: 300px;
+    padding: 10px;
+    margin-right: 5px;
+  }
+  
+  .add-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+  }
+
+.search-bar:focus {
+  border-color: #555;
+}
+
+.add-button:hover {
+  background-color: gray;
+}
+
+.custom-table {
+  width: 800px;
+  border-collapse: collapse;
+  color: black;
+  background-color: white;
+}
+
+.custom-table thead th {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.custom-table tbody td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.custom-table tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.custom-table tbody tr:nth-of-type(even) {
+  background-color: white;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #e0e0e0;
+}
+
+.edit-button,
+.view-button {
+  margin-right: 15px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+.edit-button {
+  background-color: #ffc107; /* Warning color */
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+.view-button {
+  background-color: #091ce7; 
+}
+
+.view-button:hover {
+  background-color: #091ce7; 
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-button {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  color: black;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+td{
+  color: black;
+}
+.page-button.active {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+.page-button:hover {
+  background-color: #333333;
+  color: white;
+}
