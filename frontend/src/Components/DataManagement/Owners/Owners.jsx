@@ -4,12 +4,18 @@ import { FaEdit, FaEye, FaPlus } from "react-icons/fa";
 import { BiSortAlt2 } from "react-icons/bi";
 import { AiOutlineFieldNumber } from "react-icons/ai";
 import { GoPersonFill } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
+
 
 const Owners = () => {
+  const navigate = useNavigate();
+    const Back = () => {
+          navigate('/')
+      }
   const [owners, setOwners] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(7);
+  const [itemsPerPage] = useState(6);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   const [buildings, setBuildings] = useState([]);
   const [formVisible, setFormVisible] = useState(false);
@@ -135,6 +141,7 @@ const Owners = () => {
               </div>
               <button type="submit" className="AddAdminBtn">Add Owner</button>
             </form>
+            <button className="AddAdminBtn" style={{width: "100px"}} onClick={Back}>Home</button>
           </div>
         </div>
       </div>
@@ -234,6 +241,7 @@ const Owners = () => {
             </div>
           </>
         )}
+        <button className="AddAdminBtn" style={{width: "100px"}} onClick={Back}>Home</button>
       </div>
     );
   }

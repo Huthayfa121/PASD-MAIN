@@ -49,9 +49,9 @@ const Login = () => {
                             <MdOutlinePassword className='icon'/>
                         </div>
 
-                        <div className="linkTxt">
+                       {/* <div className="linkTxt">
                             <p><Link to='/Dashboard' className="register-link">Forgot Password?</Link></p>
-                        </div>
+                        </div>*/}
 
                       <button type="submit">Login</button>
                     </form>

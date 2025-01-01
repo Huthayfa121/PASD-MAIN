@@ -203,7 +203,9 @@ const Images_Schema = new mongoose.Schema({
         ref: "buildings",
         required: true
     },
-    description: { type: String, required: true },
+    description: {
+        type: String
+    },
     image: { type: String, required: true },
 });
 const Images_Model = mongoose.model("images", Images_Schema);

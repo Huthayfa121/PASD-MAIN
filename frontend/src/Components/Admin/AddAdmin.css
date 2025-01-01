@@ -23,7 +23,7 @@
     margin-top: 20px;
     position: relative;
     width: 500px;
-    height: 550px;
+    height: 500px;
     background: var(--white);
     border: 2px solid var(--black);
     border-radius: 10px;
@@ -124,7 +124,7 @@
 
 .AddAdminBtn {
     margin-top: 20px;
-    width: 100%;
+    width: 70%;
     height: 45px;
     background-color: var(--black);
     color: var(--white);
@@ -135,6 +135,9 @@
     font-size: 16px;
     font-weight: 600;
     transition: 0.3s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .AddAdminBtn:hover {

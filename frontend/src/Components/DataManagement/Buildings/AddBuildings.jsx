@@ -2,9 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AddBuildings.css";
 import ReactSelect from "react-select";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const AddBuildings = () => {
+
+ const navigate = useNavigate();
+   const Back = () => {
+         navigate('/')
+     }
 
 
   const [building_name, setBuildingName] = useState("");
@@ -30,7 +37,7 @@ const AddBuildings = () => {
   const [originalUsage, setOriginalUsage] = useState([]);
   const [currentUsage, setCurrentUsage] = useState([]);
   const [status, setStatus] = useState([]);
-  const [frontImageLink, setFile] = useState("");
+  const [frontImageLink, setFile] = useState();
   const [originalUsageArray, setOriginalUsageArray] = useState([]);
   const [currentUsageArray, setCurrentUsageArray] = useState([]);
   const [statusArray, setStatusArray] = useState([]);
@@ -235,6 +242,7 @@ const AddBuildings = () => {
         }
 
         alert("Building and related data added successfully!");
+
       }
     }
   } catch (error) {
@@ -338,6 +346,7 @@ const AddBuildings = () => {
       reader.readAsDataURL(file);
     }
   };
+
     
 
   return (
@@ -464,7 +473,7 @@ const AddBuildings = () => {
 
             <label className="add-building-label">Front Image Link</label>
             <div className="form-group">
-              <input type="file" name="frontImageLink" onChange={handleFileChange} />
+              <input type="file" name="frontImageLink" accept=".png, .jpg, .jpeg, .svg" onChange={handleFileChange} />
             </div>
             
           </div>
@@ -569,10 +578,11 @@ const AddBuildings = () => {
               <textarea name="en_description" onChange={(e) => setEn_description(e.target.value)} />
             </div>
 
-             <button type="submit" className="submit-button">Add Building</button>
+            <button type="submit" className="submit-button">Add Building</button>
           </div>
         </div>
       </form>
+      <button className="AddAdminBtn" style={{width: "100px"}} onClick={Back}>Home</button>
     </div>
   );
 };

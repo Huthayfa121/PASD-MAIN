@@ -4,13 +4,20 @@ import { FaEdit, FaEye, FaPlus } from "react-icons/fa";
 import { BiSortAlt2 } from "react-icons/bi";
 import { AiOutlineFieldNumber } from "react-icons/ai";
 import { GoPersonFill } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
+
 
 
 const Notaries = () => {
+  const navigate = useNavigate();
+    const Back = () => {
+          navigate('/')
+  }
+  
   const [notaries, setNotaries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(7);
+  const [itemsPerPage] = useState(6);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   const [buildings, setBuildings] = useState([]);
   const [formVisible, setFormVisible] = useState(false);
@@ -35,10 +42,10 @@ const Notaries = () => {
       });
   };
 
-  // Fetch notaries on component mount
+  // Fetch notaries
   useEffect(() => {
     axios
-      .get("http://localhost:3001/notaries") // Adjust URL if needed
+      .get("http://localhost:3001/notaries")
       .then((res) => {
         setNotaries(res.data);
       })
@@ -137,7 +144,8 @@ const Notaries = () => {
                   <GoPersonFill className='icon' />
                 </div>
                 <button type="submit" className="AddAdminBtn">Add Notary</button>
-              </form>
+             </form>
+             <button className="AddAdminBtn" style={{width: "100px"}} onClick={Back}>Home</button>
             </div>
           </div>
         </div>
@@ -238,7 +246,8 @@ const Notaries = () => {
             )}
           </div>
         </>
-      )}
+        )}
+        <button className="AddAdminBtn" style={{width: "100px"}} onClick={Back}>Home</button>
     </div>
   );
   }

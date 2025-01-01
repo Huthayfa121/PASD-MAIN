@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AddAdminForm from '../Admin/AddAdmin';
 import UpdateAdminForm from '../Admin/UpdateAdminInfo';
 import ShowAdmins from '../Admin/ShowAllAdmins';
-import Notaries from '../DataManagement/Notary/Notaries'
-import Owners from '../DataManagement/Owners/Owners';
-import ShowBuilding from '../DataManagement/Buildings/ShowBuildings';
-import Architects from '../DataManagement/Architects/Architects';
+
+
 
 function Dashboard() {
   
@@ -17,10 +15,8 @@ function Dashboard() {
     const [showAddAdmin, setshowAddAdmin] = useState(false); 
     const [showUpdateAdmin, setshowUpdateAdmin] = useState(false);
     const [ShowAllAdmins, setShowAllAdmins] = useState(false);
-    const [ShowNotaries, setShowNotaries] = useState(false);
-    const [ShowOwners, setShowOwners] = useState(false);
-    const [ShowBuildings, setShowBuildings] = useState(false);
-    const [ShowArchitects, setShowArchitects] = useState(false);
+
+    const navigate = useNavigate();
 
     // Get the logged-in admin's username from localStorage
     const username = localStorage.getItem('adminUsername') || '';
@@ -49,10 +45,7 @@ function Dashboard() {
         setshowAddAdmin(true)
         setshowUpdateAdmin(false)
         setShowAllAdmins(false)
-        setShowNotaries(false)
-        setShowOwners(false)
-        setShowBuildings(false)
-        setShowArchitects(false)
+  
         
     }
 
@@ -60,89 +53,65 @@ function Dashboard() {
         setshowUpdateAdmin(true)
         setshowAddAdmin(false)
         setShowAllAdmins(false)
-        setShowNotaries(false)
-        setShowOwners(false)
-        setShowBuildings(false)
-        setShowArchitects(false)
+
     }
 
     const showAllAdmins = () => {
         setShowAllAdmins(true)
         setshowUpdateAdmin(false)
         setshowAddAdmin(false)
-        setShowNotaries(false)
-        setShowOwners(false)
-        setShowBuildings(false)
-        setShowArchitects(false)
+
     }
     const ShowNotarie = () => {
-        setShowNotaries(true)
-        setShowAllAdmins(false)
-        setshowUpdateAdmin(false)
-        setshowAddAdmin(false)
-        setShowOwners(false)
-        setShowBuildings(false)
-        setShowArchitects(false)
+       navigate('/Notaries')
     }
 
     const ShowAllOwners = () => {
-        setShowOwners(true)
-        setShowNotaries(false)
-        setShowAllAdmins(false)
-        setshowUpdateAdmin(false)
-        setshowAddAdmin(false)
-        setShowBuildings(false)
-        setShowArchitects(false)
+        navigate('/Owners')
     }
     
     const ShowAllArchitects = () => {
-        setShowOwners(false)
-        setShowNotaries(false)
-        setShowAllAdmins(false)
-        setshowUpdateAdmin(false)
-        setshowAddAdmin(false)
-        setShowBuildings(false)
-        setShowArchitects(true)
+        navigate('/Architects')
     }
 
     const ShowAllBuildings = () => {
-        setShowOwners(false)
-        setShowNotaries(false)
-        setShowAllAdmins(false)
-        setshowUpdateAdmin(false)
-        setshowAddAdmin(false)
-        setShowBuildings(true)
-        setShowArchitects(false)
+        navigate('/ShowBuildings')
     }
+
+    const ShowAllCities = () => {
+        navigate('/Cities')
+    }
+
+    const ShowAllTenant = () => {
+       navigate('/Tenants')
+    }
+
+    const ShowGallery = () => {
+        navigate('/ImageSlider')
+    }
+
 
     const HideAll = () => {
         setShowAllAdmins(false)
         setshowUpdateAdmin(false)
         setshowAddAdmin(false)
-        setShowNotaries(false)
-        setShowOwners(false)
-        setShowBuildings(false)
-        setShowArchitects(false)
     }
 
     return (
        <div className='home'>
             <nav className='NavBarItems'>
-                <div>
+                <div className="header-container" style={{ display: "flex", alignItems: "center" }}>
+                    <img src='./palestine.png' style={{ width: "45px", height: "45px", marginRight: "10px" }} alt="Palestine" />
                     <h2 className='h2Dashboard'>PASD Admin Dashboard</h2>
                 </div>
+
+
 
                 <div className='menu-icons' onClick={handleClick}>
                     <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
                 </div>
 
                 <ul className={clicked ? "nav-menu active" : "nav-menu"}>
-                    <li>
-                        <Link to='/' className='nav-Links' onClick={HideAll}>
-                            <i className='fa-solid fa-home'></i>Home
-                        </Link>
-                    </li>
-
                     {/* Conditionally render Admin Management if allowed */}
                     {isAdminAllowed && (
                         <li className="nav-item">
@@ -178,6 +147,12 @@ function Dashboard() {
                                 }}>
                                     <a className="nav-Links">Buildings</a>
                                 </li>
+
+                                <li onClick={() => {
+                                    ShowGallery();
+                                }}>
+                                    <a className="nav-Links">Buildings Image Gallery</a>
+                                </li>
                                 
                                 <li onClick={() => {
                                     ShowAllArchitects();
@@ -185,7 +160,10 @@ function Dashboard() {
                                 }}>
                                     <a className="nav-Links">Architects</a>
                                 </li>
-                                <li>
+                                <li onClick={() => {
+                                    ShowAllTenant();
+                                    handleSelection("owners");
+                                }}>
                                     <a className="nav-Links">Tenant</a>
                                 </li>
                                 <li onClick={() => {
@@ -200,9 +178,13 @@ function Dashboard() {
                                 }}>
                                     <a className="nav-Links">Notaries</a>
                                 </li>
-                                <li>
+                                <li onClick={() => {
+                                    ShowAllCities();
+                                    handleSelection("cities");
+                                }}>
                                     <a className="nav-Links">Cities</a>
                                 </li>
+
                             </ul>
                         )}
                     </li>
@@ -218,10 +200,6 @@ function Dashboard() {
             {showAddAdmin && <AddAdminForm />}
             {showUpdateAdmin && <UpdateAdminForm />}
             {ShowAllAdmins && <ShowAdmins />}
-            {ShowNotaries && <Notaries />}
-            {ShowOwners && <Owners />}
-            {ShowBuildings && <ShowBuilding />}
-            {ShowArchitects && <Architects />}
         </div>
     );
 }
